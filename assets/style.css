@@ -1,9 +1,9 @@
 :root {
-    --primary: #2b9348;
+    --primary: #1c3db2;
     --secondary: #555;
     --light: #f8f9fa;
-    --dark: #343a40;
-    --accent: #0056b3;
+    --dark: #2c3135;
+    --accent: #abcbee;
 }
 
 body {
@@ -109,31 +109,28 @@ h2 {
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
     gap: 2rem;
 }
 
 .project-card {
+    display: flex;
     background: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    flex: 1;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
 .project-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-info h3 {
@@ -144,6 +141,7 @@ h2 {
 .project-info p {
     margin: 0 0 1rem;
     color: var(--secondary);
+    flex-grow: 1;
 }
 
 .tags {
@@ -171,6 +169,11 @@ h2 {
     font-weight: 600;
     transition: background-color 0.3s ease;
     margin-top: 1rem;
+    width: -moz-fit-content;    /* Legacy Firefox */
+    width: -webkit-fit-content; /* Legacy Safari / iOS */
+  
+    /* Modern Standard */
+     width: fit-content;         /* Chrome, Edge, modern Firefox & Safari */
 }
 
 .btn:hover {
@@ -201,7 +204,7 @@ footer a:hover {
     }
 
     .projects {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .lang-switcher {
